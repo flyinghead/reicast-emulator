@@ -549,6 +549,7 @@ static void block_ssa_pass()
 
 void compile()
 {
+	WriteProtect(false);
 	//Get the code ptr
 	void* rv = icPtr;
 
@@ -641,6 +642,7 @@ void compile()
 	arm7backend_compile(block_ops, cycles);
 
 	arm_printf("arm7rec_compile done: %p,%p", rv, icPtr);
+	WriteProtect(true);
 }
 
 void flush()
